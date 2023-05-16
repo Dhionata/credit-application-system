@@ -1,0 +1,15 @@
+package com.example.creditapplicationsystem.service.implement
+
+import com.example.creditapplicationsystem.entity.Customer
+import com.example.creditapplicationsystem.repository.CustomerRepository
+import com.example.creditapplicationsystem.service.ICustomerService
+
+class CustomerService(
+    private val customerRepository: CustomerRepository
+) : ICustomerService {
+    override fun save(customer: Customer): Customer = customerRepository.save(customer)
+
+    override fun findByID(id: Long): Customer = customerRepository.findById(id).get()
+
+    override fun delete(id: Long): Unit = customerRepository.deleteById(id)
+}
