@@ -3,7 +3,9 @@ package com.example.creditapplicationsystem.service.implement
 import com.example.creditapplicationsystem.entity.Customer
 import com.example.creditapplicationsystem.repository.CustomerRepository
 import com.example.creditapplicationsystem.service.ICustomerService
+import org.springframework.stereotype.Service
 
+@Service
 class CustomerService(
     private val customerRepository: CustomerRepository
 ) : ICustomerService {

@@ -2,32 +2,37 @@ package com.example.creditapplicationsystem.controller
 
 import com.example.creditapplicationsystem.dto.*
 import com.example.creditapplicationsystem.service.implement.CreditService
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.util.UUID
 import java.util.stream.Collectors
 
 @RestController
-@RequestMapping("/api/customers")
+@RequestMapping("/api/credits")
 class CreditController(private val creditService: CreditService) {
 
     @PostMapping
-    fun saveCustomer(@RequestBody creditDto: CreditDto): String {
+    fun saveCredit(@RequestBody creditDto: CreditDto): ResponseEntity<String> {
         val savedCredit = creditService.save(creditDto.toEntity())
-        return "Credit ${savedCredit.creditCode} - Customer ${savedCredit.customer?.firstName} saved!"
+        return ResponseEntity.status(HttpStatus.CREATED).body(
+            "Credit ${savedCredit.creditCode} - Customer ${savedCredit.customer?.firstName} saved!"
+        )
     }
 
-    @GetMapping("/{id}")
-    fun findAllByCustomerId(@RequestParam(value = "customerId") customerId: Long): List<CreditViewList> {
-        return creditService.findAllByCustomer(customerId).stream().map { credit ->
+    @GetMapping()
+    fun findAllByCustomerId(@RequestParam(value = "customerId") customerId: Long):
+            ResponseEntity<List<CreditViewList>> {
+        val creditViewList = creditService.findAllByCustomer(customerId).stream().map { credit ->
             CreditViewList(credit)
         }.collect(Collectors.toList())
-
+        return ResponseEntity.status(HttpStatus.OK).body(creditViewList)
     }
 
-    @GetMapping
+    @GetMapping("/{creditCode}")
     fun findByCreditCode(@RequestParam(value = "customerId") customerId: Long, @PathVariable creditCode: UUID):
-            CreditView {
+            ResponseEntity<CreditView> {
         val credit = creditService.findByCreditCode(customerId, creditCode)
-        return CreditView(credit)
+        return ResponseEntity.status(HttpStatus.OK).body(CreditView(credit))
     }
 }
