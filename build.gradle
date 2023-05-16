@@ -24,6 +24,7 @@ dependencies {
     implementation 'org.flywaydb:flyway-core'
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     runtimeOnly 'com.h2database:h2'
+    compileOnly('org.springframework.boot:spring-boot-devtools')
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

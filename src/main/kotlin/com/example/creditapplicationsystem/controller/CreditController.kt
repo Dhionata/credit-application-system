@@ -2,6 +2,7 @@ package com.example.creditapplicationsystem.controller
 
 import com.example.creditapplicationsystem.dto.*
 import com.example.creditapplicationsystem.service.implement.CreditService
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -13,7 +14,7 @@ import java.util.stream.Collectors
 class CreditController(private val creditService: CreditService) {
 
     @PostMapping
-    fun saveCredit(@RequestBody creditDto: CreditDto): ResponseEntity<String> {
+    fun saveCredit(@RequestBody @Valid creditDto: CreditDto): ResponseEntity<String> {
         val savedCredit = creditService.save(creditDto.toEntity())
         return ResponseEntity.status(HttpStatus.CREATED).body(
             "Credit ${savedCredit.creditCode} - Customer ${savedCredit.customer?.firstName} saved!"

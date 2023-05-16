@@ -11,7 +11,7 @@ class CustomerService(
 ) : ICustomerService {
     override fun save(customer: Customer): Customer = customerRepository.save(customer)
 
-    override fun findByID(id: Long): Customer = customerRepository.findById(id).get()
+    override fun findByID(id: Long): Customer = customerRepository.findById(id).orElseThrow()
 
     override fun delete(id: Long): Unit = customerRepository.deleteById(id)
 }
