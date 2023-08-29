@@ -25,7 +25,7 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     implementation 'org.springframework.security:spring-security-core'
     runtimeOnly 'com.h2database:h2'
-    compileOnly('org.springframework.boot:spring-boot-devtools')
+    developmentOnly('org.springframework.boot:spring-boot-devtools')
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

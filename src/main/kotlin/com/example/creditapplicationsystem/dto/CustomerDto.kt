@@ -10,14 +10,14 @@ import org.springframework.format.annotation.NumberFormat
 import java.math.BigDecimal
 
 data class CustomerDto(
-    @field:NotBlank(message = "Invalid input") val firstName: String,
-    @field:NotBlank(message = "Invalid input") val lastName: String,
-    @field:NotBlank(message = "Invalid input") @field:CPF(message = "this's invalid CPF") val cpf: String,
-    @field:NotNull(message = "Invalid input") @field:NumberFormat val income: BigDecimal,
-    @field:NotBlank(message = "Invalid input") @field:Email val email: String,
-    @field:NotBlank(message = "Invalid input") val password: String,
-    @field:NotBlank(message = "Invalid input") val zipCode: String,
-    @field:NotBlank(message = "Invalid input") val street: String
+    @field:NotBlank(message = "Invalid input {firstName}") val firstName: String,
+    @field:NotBlank(message = "Invalid input {lastName}") val lastName: String,
+    @field:NotBlank(message = "Invalid input {cpf}") @field:CPF(message = "this's invalid CPF") val cpf: String,
+    @field:NotNull(message = "Invalid input {income}") @field:NumberFormat val income: BigDecimal,
+    @field:NotBlank(message = "Invalid input {email}") @field:Email val email: String,
+    @field:NotBlank(message = "Invalid input {password}") val password: String,
+    @field:NotBlank(message = "Invalid input {zipCode}") val zipCode: String,
+    @field:NotBlank(message = "Invalid input {street}") val street: String
 ) {
     fun toEntity(): Customer = Customer(
         firstName = this.firstName,

@@ -3,7 +3,7 @@ package com.example.creditapplicationsystem.dto
 import com.example.creditapplicationsystem.entity.Credit
 import com.example.creditapplicationsystem.enummeration.Status
 import java.math.BigDecimal
-import java.util.UUID
+import java.util.*
 
 data class CreditView(
     val creditCode: UUID,

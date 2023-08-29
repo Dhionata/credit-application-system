@@ -1,12 +1,14 @@
 package com.example.creditapplicationsystem.controller
 
-import com.example.creditapplicationsystem.dto.*
+import com.example.creditapplicationsystem.dto.CreditDto
+import com.example.creditapplicationsystem.dto.CreditView
+import com.example.creditapplicationsystem.dto.CreditViewList
 import com.example.creditapplicationsystem.service.implement.CreditService
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import java.util.UUID
+import java.util.*
 import java.util.stream.Collectors
 
 @RestController
@@ -21,7 +23,7 @@ class CreditController(private val creditService: CreditService) {
         )
     }
 
-    @GetMapping()
+    @GetMapping
     fun findAllByCustomerId(@RequestParam(value = "customerId") customerId: Long):
             ResponseEntity<List<CreditViewList>> {
         val creditViewList = creditService.findAllByCustomer(customerId).stream().map { credit ->
@@ -36,4 +38,5 @@ class CreditController(private val creditService: CreditService) {
         val credit = creditService.findByCreditCode(customerId, creditCode)
         return ResponseEntity.status(HttpStatus.OK).body(CreditView(credit))
     }
+
 }

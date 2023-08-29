@@ -11,10 +11,11 @@ import java.math.BigDecimal
 import java.time.LocalDate
 
 data class CreditDto(
-    @field:NotNull(message = "Invalid input") @field:NumberFormat val creditValue: BigDecimal,
-    @field:FutureOrPresent(message = "You cannot pay in the past!") val dayFirstOfInstallment: LocalDate,
-    @field:DecimalMin(value = "1") val numberOfInstallment: Int,
-    @field:Positive(message = "Invalid input") val customerId: Long
+    @field:NotNull(message = "Invalid input {creditValue}") @field:NumberFormat val creditValue: BigDecimal,
+    @field:FutureOrPresent(message = "You cannot pay in the past! {dayFirstOfInstallment}") val dayFirstOfInstallment:
+    LocalDate,
+    @field:DecimalMin(value = "1", message = "Invalid input {numberOfInstallment}") val numberOfInstallment: Int,
+    @field:Positive(message = "Invalid input {customerId}") val customerId: Long
 ) {
     fun toEntity(): Credit {
         return Credit(
