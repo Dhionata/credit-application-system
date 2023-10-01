@@ -1,7 +1,7 @@
 package com.example.creditapplicationsystem.dto
 
 import com.example.creditapplicationsystem.entity.Address
-import com.example.creditapplicationsystem.entity.Customer
+import com.example.creditapplicationsystem.entity.customer.Customer
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.NotNull
@@ -14,7 +14,7 @@ data class CustomerDto(
     @field:NotBlank(message = "Invalid input {lastName}") val lastName: String,
     @field:NotBlank(message = "Invalid input {cpf}") @field:CPF(message = "This's invalid CPF") val cpf: String,
     @field:NotNull(message = "Invalid input {income}") @field:NumberFormat val income: BigDecimal,
-    @field:NotBlank(message = "Invalid input {email}") @field:Email val email: String,
+    @field:NotBlank(message = "Invalid input {email}") @field:Email(message = "This's invalid Email") val email: String,
     @field:NotBlank(message = "Invalid input {password}") val password: String,
     @field:NotBlank(message = "Invalid input {zipCode}") val zipCode: String,
     @field:NotBlank(message = "Invalid input {street}") val street: String

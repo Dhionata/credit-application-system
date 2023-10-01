@@ -1,6 +1,6 @@
 package com.example.creditapplicationsystem.service
 
-import com.example.creditapplicationsystem.entity.Credit
+import com.example.creditapplicationsystem.entity.credit.Credit
 import java.util.*
 
 interface ICreditService {

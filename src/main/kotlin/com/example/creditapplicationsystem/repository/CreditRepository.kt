@@ -1,6 +1,6 @@
 package com.example.creditapplicationsystem.repository
 
-import com.example.creditapplicationsystem.entity.Credit
+import com.example.creditapplicationsystem.entity.credit.Credit
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository

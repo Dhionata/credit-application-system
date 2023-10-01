@@ -1,8 +1,8 @@
 package com.example.creditapplicationsystem.controller
 
 import com.example.creditapplicationsystem.dto.CreditDto
-import com.example.creditapplicationsystem.dto.CreditView
-import com.example.creditapplicationsystem.dto.CreditViewList
+import com.example.creditapplicationsystem.entity.credit.CreditView
+import com.example.creditapplicationsystem.entity.credit.CreditViewList
 import com.example.creditapplicationsystem.service.implement.CreditService
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
@@ -19,7 +19,7 @@ class CreditController(private val creditService: CreditService) {
     fun saveCredit(@RequestBody @Valid creditDto: CreditDto): ResponseEntity<String> {
         val savedCredit = creditService.save(creditDto.toEntity())
         return ResponseEntity.status(HttpStatus.CREATED).body(
-            "Credit ${savedCredit.creditCode} - Customer ${savedCredit.customer?.firstName} saved!"
+            "Credit ${savedCredit.creditCode} - Customer ${savedCredit.customer.firstName} saved!"
         )
     }
 

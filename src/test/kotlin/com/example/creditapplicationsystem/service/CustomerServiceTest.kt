@@ -1,7 +1,7 @@
 package com.example.creditapplicationsystem.service
 
 import com.example.creditapplicationsystem.entity.Address
-import com.example.creditapplicationsystem.entity.Customer
+import com.example.creditapplicationsystem.entity.customer.Customer
 import com.example.creditapplicationsystem.exception.BusinessException
 import com.example.creditapplicationsystem.repository.CustomerRepository
 import com.example.creditapplicationsystem.service.implement.CustomerService

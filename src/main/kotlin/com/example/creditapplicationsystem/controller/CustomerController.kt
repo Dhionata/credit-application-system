@@ -2,7 +2,7 @@ package com.example.creditapplicationsystem.controller
 
 import com.example.creditapplicationsystem.dto.CustomerDto
 import com.example.creditapplicationsystem.dto.CustomerUpdateDto
-import com.example.creditapplicationsystem.dto.CustomerView
+import com.example.creditapplicationsystem.entity.customer.CustomerView
 import com.example.creditapplicationsystem.service.implement.CustomerService
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus

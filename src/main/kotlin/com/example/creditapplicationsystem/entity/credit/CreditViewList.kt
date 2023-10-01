@@ -1,13 +1,12 @@
-package com.example.creditapplicationsystem.dto
+package com.example.creditapplicationsystem.entity.credit
 
-import com.example.creditapplicationsystem.entity.Credit
 import java.math.BigDecimal
 import java.util.*
 
 data class CreditViewList(
-    val creditCode: UUID,
-    val creditValue: BigDecimal,
-    val numberOfInstallment: Int,
+    private val creditCode: UUID,
+    private val creditValue: BigDecimal,
+    private val numberOfInstallment: Int,
 ) {
 
     constructor(credit: Credit) : this(

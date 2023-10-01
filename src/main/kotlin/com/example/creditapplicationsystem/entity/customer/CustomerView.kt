@@ -1,16 +1,15 @@
-package com.example.creditapplicationsystem.dto
+package com.example.creditapplicationsystem.entity.customer
 
-import com.example.creditapplicationsystem.entity.Customer
 import java.math.BigDecimal
 
 data class CustomerView(
-    val fisrtName: String,
-    val lastName: String,
-    val cpf: String,
-    val income: BigDecimal,
-    val email: String,
-    val zipCode: String,
-    val street: String
+    private val fisrtName: String,
+    private val lastName: String,
+    private val cpf: String,
+    private val income: BigDecimal,
+    private val email: String,
+    private val zipCode: String,
+    private val street: String
 ) {
     constructor(customer: Customer) : this(
         fisrtName = customer.firstName,
