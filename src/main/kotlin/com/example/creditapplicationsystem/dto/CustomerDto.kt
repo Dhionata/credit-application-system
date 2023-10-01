@@ -12,7 +12,7 @@ import java.math.BigDecimal
 data class CustomerDto(
     @field:NotBlank(message = "Invalid input {firstName}") val firstName: String,
     @field:NotBlank(message = "Invalid input {lastName}") val lastName: String,
-    @field:NotBlank(message = "Invalid input {cpf}") @field:CPF(message = "this's invalid CPF") val cpf: String,
+    @field:NotBlank(message = "Invalid input {cpf}") @field:CPF(message = "This's invalid CPF") val cpf: String,
     @field:NotNull(message = "Invalid input {income}") @field:NumberFormat val income: BigDecimal,
     @field:NotBlank(message = "Invalid input {email}") @field:Email val email: String,
     @field:NotBlank(message = "Invalid input {password}") val password: String,
@@ -27,8 +27,7 @@ data class CustomerDto(
         email = email,
         password = password,
         address = Address(
-            zipCode = zipCode,
-            street = street
+            zipCode = zipCode, street = street
         )
     )
 }

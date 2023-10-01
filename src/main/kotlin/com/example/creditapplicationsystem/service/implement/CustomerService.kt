@@ -14,5 +14,7 @@ class CustomerService(private val customerRepository: CustomerRepository) : ICus
         throw BusinessException("Id $id not found")
     }
 
-    override fun delete(id: Long) = customerRepository.deleteById(id)
+    override fun delete(id: Long) {
+        customerRepository.delete(findByID(id))
+    }
 }

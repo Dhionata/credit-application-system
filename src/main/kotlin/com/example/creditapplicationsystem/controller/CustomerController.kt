@@ -31,7 +31,7 @@ class CustomerController(private val customerService: CustomerService) {
 
     @PatchMapping
     fun updateCustomer(
-            @RequestParam(value = "customerId") id: Long, @RequestBody @Valid customerUpdateDto: CustomerUpdateDto
+        @RequestParam(value = "customerId") id: Long, @RequestBody @Valid customerUpdateDto: CustomerUpdateDto
     ): ResponseEntity<CustomerView> {
         val customer = customerService.findByID(id)
         val customerToUpdate = customerUpdateDto.toEntity(customer)

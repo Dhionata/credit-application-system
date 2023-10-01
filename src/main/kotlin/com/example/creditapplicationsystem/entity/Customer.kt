@@ -2,11 +2,12 @@ package com.example.creditapplicationsystem.entity
 
 import jakarta.persistence.*
 import java.math.BigDecimal
+import kotlin.random.Random
 
 @Entity
 @Table
 data class Customer(
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long? = null,
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long = Random.nextLong(),
     @Column(nullable = false) var firstName: String = "",
     @Column(nullable = false) var lastName: String = "",
     @Column(nullable = false, unique = true) var cpf: String = "",
